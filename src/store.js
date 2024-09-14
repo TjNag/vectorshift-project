@@ -44,11 +44,11 @@ export const useStore = create((set, get) => ({
       set({
         nodes: get().nodes.map((node) => {
           if (node.id === nodeId) {
-            return {...node, [fieldName]: fieldValue};
+            node.data = { ...node.data, [fieldName]: fieldValue };
           }
+  
           return node;
         }),
       });
     },
-    
   }));
